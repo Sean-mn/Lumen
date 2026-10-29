@@ -821,6 +821,49 @@ mod tests {
             ["vscode-chromium-caches", "vscode-extension-vsix-cache"]
         );
         assert_eq!(ids(&win, &[roaming(r"Code\Local Storage")]).len(), 0);
+        assert_eq!(
+            ids(
+                &win,
+                &[
+                    roaming(r"discord\Cache"),
+                    roaming(r"Discord\Code Cache"),
+                    roaming(r"discord\DawnWebGPUCache"),
+                    roaming(r"Postman\Code Cache"),
+                    roaming(r"Postman\Partitions\postman_shell\GPUCache"),
+                    roaming(r"Postman\Partitions\postman_user_cookies_undefined\Cache"),
+                ]
+            ),
+            [
+                "discord-chromium-caches",
+                "discord-chromium-caches",
+                "discord-chromium-caches",
+                "postman-chromium-caches",
+                "postman-chromium-caches",
+                "postman-chromium-caches",
+            ]
+        );
+        assert_eq!(
+            ids(
+                &win,
+                &[
+                    roaming("discord"),
+                    roaming(r"discord\Local Storage"),
+                    roaming(r"discord\IndexedDB"),
+                    roaming(r"discord\Service Worker"),
+                    roaming(r"discord\module_data"),
+                    roaming(r"discord\Network"),
+                    roaming(r"discord\Cache\Cache_Data"),
+                    roaming(r"Postman\storage"),
+                    roaming(r"Postman\Local Storage"),
+                    roaming(r"Postman\Partitions"),
+                    roaming(r"Postman\Partitions\postman_user_cookies_undefined"),
+                    roaming(r"Postman\Partitions\postman_user_cookies_undefined\Network"),
+                    roaming(r"Postman\Partitions\postman_shell\Service Worker"),
+                ]
+            )
+            .len(),
+            0
+        );
         let linux = env(Platform::Linux);
         assert_eq!(
             ids(&linux, &[dir("/Users/ana/.config/Code/Code Cache", 1)]),

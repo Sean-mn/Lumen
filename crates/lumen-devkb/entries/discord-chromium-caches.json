@@ -51,12 +51,63 @@
       "platforms": ["macos"],
       "root": { "kind": "home" },
       "path": "Library/Application Support/discord/Partitions/*/DawnWebGPUCache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/Cache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/Code Cache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/GPUCache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/DawnGraphiteCache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/DawnWebGPUCache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/Partitions/*/Cache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/Partitions/*/Code Cache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/Partitions/*/GPUCache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/Partitions/*/DawnGraphiteCache"
+    },
+    {
+      "platforms": ["windows"],
+      "root": { "kind": "roaming_app_data" },
+      "path": "discord/Partitions/*/DawnWebGPUCache"
     }
   ],
   "safety_class": "regenerable",
   "regeneration": { "effort": "seconds", "network": true },
   "sources": [
     "https://discord.com/blog/how-discord-seamlessly-upgraded-millions-of-users-to-64-bit-architecture",
+    "https://support.discord.com/hc/en-us/articles/115004307527--Windows-Corrupt-Installation",
     "https://www.electronjs.org/docs/latest/api/app",
     "https://www.electronjs.org/docs/latest/api/session",
     "https://github.com/electron/electron/blob/main/shell/browser/net/network_context_service.cc",
@@ -66,5 +117,5 @@
     "https://github.com/chromium/chromium/blob/main/content/browser/storage_partition_impl.cc",
     "https://github.com/chromium/chromium/blob/main/gpu/ipc/common/gpu_disk_cache_type.cc"
   ],
-  "last_verified": "2026-10-26"
+  "last_verified": "2026-10-29"
 }

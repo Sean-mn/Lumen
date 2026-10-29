@@ -70,10 +70,21 @@ vendor documents it, at the vendor's documented location:
 | --- | --- | --- | --- |
 | Claude (desktop) | `Claude` | bundle | [MCP: Claude Desktop config](https://modelcontextprotocol.io/docs/develop/connect-local-servers) (`~/Library/Application Support/Claude`, `%APPDATA%\Claude`) |
 | Visual Studio Code | `Code` | bundle, [source](https://github.com/microsoft/vscode/blob/main/src/mainImpl.ts) | [Settings file locations](https://code.visualstudio.com/docs/configure/settings#_settings-file-locations) (macOS, Windows, Linux) |
-| Discord | `discord` | bundle, [Discord blog](https://discord.com/blog/how-discord-seamlessly-upgraded-millions-of-users-to-64-bit-architecture) | none found: macOS only, as observed |
+| Discord | `discord` | bundle, Windows install, [Discord blog](https://discord.com/blog/how-discord-seamlessly-upgraded-millions-of-users-to-64-bit-architecture) | [Windows Corrupt Installation](https://support.discord.com/hc/en-us/articles/115004307527--Windows-Corrupt-Installation) (`%AppData%/Discord`); macOS as observed |
 | Notion | `Notion` | bundle | [Reset Notion](https://www.notion.com/help/reset-notion) (`Application Support`, `AppData\Roaming`) |
-| Postman | `Postman` | bundle | none found for macOS: macOS only, as observed |
+| Postman | `Postman` | bundle, Windows install | [How to remove local data](https://support.postman.com/hc/en-us/articles/4410785125271-How-to-remove-local-data) (`~/Library/Application Support`, `AppData\Roaming\Postman`) |
 | Obsidian | `obsidian` | bundle | [How Obsidian stores data](https://obsidian.md/help/data-storage) (macOS, Windows, Linux) |
+
+On a Windows 11 PC (2026-10-29), Discord 1.0.9265 and Postman 12.32.4 are installed in
+`%LOCALAPPDATA%\<App>\app-<version>` with Electron's files (`resources\app.asar`,
+`v8_context_snapshot.bin`, `icudtl.dat`, `chrome_100_percent.pak`). Their data folders,
+`%APPDATA%\discord` and `%APPDATA%\Postman`, have Chromium's layout: `Local State` and
+`Preferences`, `Cache` (holding `Cache_Data`) and `Code Cache` beside the apps' state
+(`Local Storage`; Discord's `IndexedDB` and `Service Worker`; Postman's `storage`, with
+`IndexedDB` and `Service Worker` inside its partitions); Discord's GPU caches at the
+top, Postman's inside its `Partitions/<name>` folders. Their Windows locations mirror
+the macOS ones. Discord's folder also holds a `DawnCache`, which the macOS entries do
+not name; not added.
 
 Not added: Slack and Microsoft Teams (not installed here, so their layout could not be
 checked), Figma (its data folder has a different
