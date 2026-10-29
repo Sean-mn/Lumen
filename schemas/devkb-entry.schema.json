@@ -284,7 +284,7 @@
       ]
     },
     "ToolAction": {
-      "description": "A tool's own cleanup command, as a literal argument vector: never a shell\nstring. The program is a bare name that the runner resolves from known\ninstall locations, never from `PATH` (ADR-0021).",
+      "description": "A tool's own cleanup command, as a literal argument vector: never a shell\nstring. The program is a bare name that the runner resolves from the\nuser's `PATH`, then known install locations (ADR-0021, ADR-0049).",
       "type": "object",
       "properties": {
         "args": {
