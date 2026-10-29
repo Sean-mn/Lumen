@@ -367,8 +367,8 @@ the schema cannot express:
 
 - paths are relative to a known root, and never the root itself or every child of it;
 - a project location needs marker files;
-- programs are bare names that the runner resolves from known install locations, never
-  through `PATH`, and arguments are an argument vector, never a shell string;
+- programs are bare names that the runner resolves from the user's `PATH`, then known
+  install locations, and arguments are an argument vector, never a shell string;
 - a `tool_action` entry has an action, and a `not_regenerable` one never does;
 - sources are `https` URLs;
 - `last_verified` is a real date. A weekly scheduled job (`cargo xtask devkb

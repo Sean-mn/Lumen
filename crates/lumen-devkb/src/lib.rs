@@ -248,8 +248,8 @@ pub enum Effort {
 }
 
 /// A tool's own cleanup command, as a literal argument vector: never a shell
-/// string. The program is a bare name that the runner resolves from known
-/// install locations, never from `PATH` (ADR-0021).
+/// string. The program is a bare name that the runner resolves from the
+/// user's `PATH`, then known install locations (ADR-0021, ADR-0049).
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(deny_unknown_fields)]
 pub struct ToolAction {
